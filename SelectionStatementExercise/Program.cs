@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            int favNumber = 7;
-            int userGuess = 0;
-            int closeAbove = favNumber + 1;
-            int closeBelow = favNumber - 1;
+            var favNumber = 7;
+            var userGuess = 0;
+            var closeAbove = favNumber + 1;
+            var closeBelow = favNumber - 1;
 
             Console.WriteLine("Guess my favorite number between 1 & 10.");
             do
