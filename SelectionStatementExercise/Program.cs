@@ -4,51 +4,31 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var favNumber = 7;
-        var userGuess = 0;
-        var closeAbove = favNumber + 1;
-        var closeBelow = favNumber - 1;
-        int v;
-        
-        Console.WriteLine("Guess my favorite number between 1 & 10.");
-        do
+        Console.WriteLine("What was your favorite subject in high school?");
+
+        string? userSubject = Console.ReadLine();
+
+        switch (userSubject)
         {
-            do
-            {
-                if (!int.TryParse(Console.ReadLine(), out v))
-                {
-                    Console.WriteLine("Type only positive numbers greater than zero!");
-                }
-                else if (v == 0)
-                {
-                    Console.WriteLine("Type only positive numbers greater than zero!");
-                }
-            } while (v == 0);
-            userGuess = v;
-            if (userGuess == favNumber)
-            {
-                Console.WriteLine("Great guess!");
-            }
-            else if (userGuess == closeAbove)
-            {
-                Console.WriteLine("Close!");
-            }
-            else if (userGuess == closeBelow)
-            {
-                Console.WriteLine("Close!");
-            }
-            else if (userGuess < favNumber)
-            {
-                Console.WriteLine("Too low.");
-            }
-            else if (userGuess > favNumber)
-            {
-                Console.WriteLine("Too high.");
-            }
-            else
-            {
-                Console.WriteLine("Nevermind.");
-            }
-        } while (userGuess != favNumber);
+            case "Math":
+                Console.WriteLine("Math is cool!");
+                break;
+            case "English":
+                Console.WriteLine("To be or not to be...");
+                break;
+            case "Physics":
+                Console.WriteLine("E=MC^2...");
+                break;
+            case "Chemistry":
+                Console.WriteLine("Do you remember the periodic table of elements?");
+                break;
+            case "P.E.":
+                Console.WriteLine("Isn't that everybody's favorite?");
+                break;
+            default:
+                Console.WriteLine("What school did you go to?!?!!");
+                break;
+
+        }
     }
 }
