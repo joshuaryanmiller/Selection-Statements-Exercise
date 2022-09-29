@@ -1,43 +1,54 @@
-﻿namespace SelectionStatementExercise
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            var favNumber = 7;
-            var userGuess = 0;
-            var closeAbove = favNumber + 1;
-            var closeBelow = favNumber - 1;
+﻿using System.Data;
 
-            Console.WriteLine("Guess my favorite number between 1 & 10.");
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var favNumber = 7;
+        var userGuess = 0;
+        var closeAbove = favNumber + 1;
+        var closeBelow = favNumber - 1;
+        int v;
+        
+        Console.WriteLine("Guess my favorite number between 1 & 10.");
+        do
+        {
             do
             {
-                userGuess = int.Parse(Console.ReadLine());
-                if (userGuess == favNumber)
+                if (!int.TryParse(Console.ReadLine(), out v))
                 {
-                    Console.WriteLine("Great guess!");
+                    Console.WriteLine("Type only positive numbers greater than zero!");
                 }
-                else if (userGuess == closeAbove)
+                else if (v == 0)
                 {
-                    Console.WriteLine("Close!");
+                    Console.WriteLine("Type only positive numbers greater than zero!");
                 }
-                else if (userGuess == closeBelow)
-                {
-                    Console.WriteLine("Close!");
-                }
-                else if (userGuess < favNumber)
-                {
-                    Console.WriteLine("Too low.");
-                }
-                else if (userGuess > favNumber)
-                {
-                    Console.WriteLine("Too high.");
-                }
-                else
-                {
-                    Console.WriteLine("Nevermind.");
-                }
-            } while (userGuess != favNumber);
-        }
+            } while (v == 0);
+            userGuess = v;
+            if (userGuess == favNumber)
+            {
+                Console.WriteLine("Great guess!");
+            }
+            else if (userGuess == closeAbove)
+            {
+                Console.WriteLine("Close!");
+            }
+            else if (userGuess == closeBelow)
+            {
+                Console.WriteLine("Close!");
+            }
+            else if (userGuess < favNumber)
+            {
+                Console.WriteLine("Too low.");
+            }
+            else if (userGuess > favNumber)
+            {
+                Console.WriteLine("Too high.");
+            }
+            else
+            {
+                Console.WriteLine("Nevermind.");
+            }
+        } while (userGuess != favNumber);
     }
 }
